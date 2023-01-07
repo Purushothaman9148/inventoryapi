@@ -6,12 +6,14 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const PORT = process.env.PORT || 8000;
 app.use(express.json())
+app.use(bodyParser.json)
 
 //connection 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => { })
 
-app.get('/', (req, res) => {
+
+app.get('/home', (req, res) => {
     res.send("Home Page");
 })
 
